@@ -12,6 +12,11 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
+import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
+import PhonelinkLockIcon from "@mui/icons-material/PhonelinkLock";
+import HelpIcon from "@mui/icons-material/Help";
+import ChatIcon from "@mui/icons-material/Chat";
+import NotificationsIcon from "@mui/icons-material/Notifications";
 import logo from "./nextfit-academia-logo.svg";
 
 const HeaderHome = () => {
@@ -79,8 +84,30 @@ const HeaderHome = () => {
           </form>
         </Box>
 
-        {/* Box 3: Outros botões do cabeçalho */}
-        <Box sx={{ ml: 2 }}>Div 4</Box>
+        {/* Box 3: Botões do cabeçalho */}
+        <Box
+          sx={{
+            display: "flex",
+
+            gap: 1,
+          }}
+        >
+          <IconButton color="inherit">
+            <CardGiftcardIcon />
+          </IconButton>
+          <IconButton color="inherit">
+            <PhonelinkLockIcon />
+          </IconButton>
+          <IconButton color="inherit">
+            <HelpIcon />
+          </IconButton>
+          <IconButton color="inherit">
+            <ChatIcon />
+          </IconButton>
+          <IconButton color="inherit">
+            <NotificationsIcon />
+          </IconButton>
+        </Box>
 
         {/* Box 4: Botão de perfil */}
         <Box>
