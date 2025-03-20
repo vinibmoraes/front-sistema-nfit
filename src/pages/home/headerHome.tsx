@@ -38,13 +38,19 @@ const HeaderHome = () => {
         {/* Box 2: Barra de pesquisa */}
         <Box
           sx={{
-            backgroundColor: "rgba(255, 255, 255, 0.2)",
+            backgroundColor: "hsla(0,0%,100%,.1)",
           }}
         >
           <form noValidate autoComplete="off">
-            <FormControl sx={{ width: "500px", color: "white" }}>
-              {" "}
-              {/* Aumenta a largura */}
+            <FormControl
+              sx={{
+                width: "500px",
+                height: "40px",
+                color: "white",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
               <OutlinedInput
                 sx={{
                   color: "white",
@@ -61,7 +67,11 @@ const HeaderHome = () => {
                 placeholder="Pesquisar clientes e leads"
                 startAdornment={
                   <InputAdornment position="start">
-                    <SearchIcon sx={{ color: "white" }} />
+                    <SearchIcon
+                      sx={{
+                        color: "white",
+                      }}
+                    />
                   </InputAdornment>
                 }
               />
