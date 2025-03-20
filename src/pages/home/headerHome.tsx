@@ -9,6 +9,8 @@ import {
   FormControl,
   OutlinedInput,
   InputAdornment,
+  Avatar,
+  Divider,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
@@ -17,6 +19,8 @@ import PhonelinkLockIcon from "@mui/icons-material/PhonelinkLock";
 import HelpIcon from "@mui/icons-material/Help";
 import ChatIcon from "@mui/icons-material/Chat";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import { Person as UserIcon } from "@mui/icons-material";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import logo from "./nextfit-academia-logo.svg";
 
 const HeaderHome = () => {
@@ -43,14 +47,16 @@ const HeaderHome = () => {
         {/* Box 2: Barra de pesquisa */}
         <Box
           sx={{
-            backgroundColor: "hsla(0,0%,100%,.1)",
+            flexGrow: 1,
+            display: "flex",
+            justifyContent: "center",
+            height: "40px",
           }}
         >
           <form noValidate autoComplete="off">
             <FormControl
               sx={{
                 width: "500px",
-                height: "40px",
                 color: "white",
                 display: "flex",
                 justifyContent: "center",
@@ -68,15 +74,14 @@ const HeaderHome = () => {
                   "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
                     border: "none", // Remover cor ao focar
                   },
+                  backgroundColor: "hsla(0,0%,100%,.1)",
+                  padding: "0 10px", // Adicionar espaçamento para o input
+                  height: "40px",
                 }}
                 placeholder="Pesquisar clientes e leads"
                 startAdornment={
                   <InputAdornment position="start">
-                    <SearchIcon
-                      sx={{
-                        color: "white",
-                      }}
-                    />
+                    <SearchIcon sx={{ color: "white" }} />
                   </InputAdornment>
                 }
               />
@@ -88,8 +93,9 @@ const HeaderHome = () => {
         <Box
           sx={{
             display: "flex",
-
             gap: 1,
+            ml: "auto", // Move tudo para a direita
+            alignItems: "center",
           }}
         >
           <IconButton color="inherit">
@@ -107,11 +113,42 @@ const HeaderHome = () => {
           <IconButton color="inherit">
             <NotificationsIcon />
           </IconButton>
-        </Box>
 
-        {/* Box 4: Botão de perfil */}
-        <Box>
-          <Button color="inherit">Meu perfil</Button>
+          {/* Divider */}
+          <Divider
+            orientation="vertical"
+            flexItem
+            sx={{
+              backgroundColor: "rgba(255, 255, 255, 0.5)",
+              height: "30px",
+              my: "auto",
+            }}
+          />
+
+          <Button color="inherit" sx={{ textTransform: "none" }}>
+            <Box
+              sx={{ display: "flex", alignItems: "center", gap: 1, mr: "0px" }}
+            >
+              {/* Avatar */}
+              <Avatar sx={{ width: 40, height: 40 }}>
+                <UserIcon />
+              </Avatar>
+
+              {/* Nome e Descrição */}
+              <Box sx={{ textAlign: "left" }}>
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: "bold", lineHeight: 1 }}
+                >
+                  Vinicius de Moraes
+                </Typography>
+                <Typography variant="body2" sx={{ lineHeight: 1 }}>
+                  Next Fitness
+                </Typography>
+              </Box>
+              <KeyboardArrowDownIcon sx={{ color: "white" }} />
+            </Box>
+          </Button>
         </Box>
       </Toolbar>
     </AppBar>
