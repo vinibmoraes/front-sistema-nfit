@@ -5,55 +5,77 @@ import {
   Typography,
   Button,
   IconButton,
-  Avatar,
   Box,
+  FormControl,
+  OutlinedInput,
+  InputAdornment,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu"; // Ícone do menu hambúrguer
+import MenuIcon from "@mui/icons-material/Menu";
+import SearchIcon from "@mui/icons-material/Search";
 import logo from "./nextfit-academia-logo.svg";
 
 const HeaderHome = () => {
   return (
     <AppBar
       position="fixed"
-      sx={{ backgroundColor: "#833ab4", padding: "0 !important", margin: 0 }}
+      sx={{
+        backgroundColor: "#833ab4",
+      }}
     >
-      <Toolbar sx={{ padding: 0, margin: 0, minHeight: "auto" }}>
-        {/* Box para o Menu Hambúrguer */}
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-start",
-          }}
-        >
-          <IconButton color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        {/* Box 1: Menu e Logo */}
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <IconButton color="inherit" aria-label="menu" sx={{ mr: 3 }}>
             <MenuIcon />
           </IconButton>
-        </Box>
-
-        {/* Box para a imagem */}
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            mr: 2, // Ajusta o espaço à direita
-          }}
-        >
           <img
             src={logo}
             alt="Logo"
-            style={{ width: 110, height: 50, objectFit: "contain" }} // Retangular e ajuste de imagem
+            style={{ width: 110, height: 50, objectFit: "contain" }}
           />
         </Box>
 
-        {/* Botões */}
-        <Button color="inherit">Login</Button>
-        <Button color="inherit">Cadastrar</Button>
+        {/* Box 2: Barra de pesquisa */}
+        <Box
+          sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.2)",
+          }}
+        >
+          <form noValidate autoComplete="off">
+            <FormControl sx={{ width: "500px", color: "white" }}>
+              {" "}
+              {/* Aumenta a largura */}
+              <OutlinedInput
+                sx={{
+                  color: "white",
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    border: "none", // Remover cor padrão da borda
+                  },
+                  "&:hover .MuiOutlinedInput-notchedOutline": {
+                    border: "none", // Remover cor ao passar o mouse
+                  },
+                  "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                    border: "none", // Remover cor ao focar
+                  },
+                }}
+                placeholder="Pesquisar clientes e leads"
+                startAdornment={
+                  <InputAdornment position="start">
+                    <SearchIcon sx={{ color: "white" }} />
+                  </InputAdornment>
+                }
+              />
+            </FormControl>
+          </form>
+        </Box>
 
-        {/* Outras Boxs para conteúdo adicional */}
+        {/* Box 3: Outros botões do cabeçalho */}
         <Box sx={{ ml: 2 }}>Div 4</Box>
-        <Box sx={{ ml: 2 }}>Div 5</Box>
+
+        {/* Box 4: Botão de perfil */}
+        <Box>
+          <Button color="inherit">Meu perfil</Button>
+        </Box>
       </Toolbar>
     </AppBar>
   );
